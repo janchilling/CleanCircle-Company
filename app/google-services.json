@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "212827955767",
+    "firebase_url": "https://cleancircle-bfa50-default-rtdb.firebaseio.com",
+    "project_id": "cleancircle-bfa50",
+    "storage_bucket": "cleancircle-bfa50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212827955767:android:e76a6db7b5851d00e915b2",
+        "android_client_info": {
+          "package_name": "com.cleancirclecompany.wasteworker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeXOfsHqF0-V4wsHJanoD4tac9uLATKQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="index_logo">247dp</dimen>
+    <dimen name="index_logo_height">242dp</dimen>
+    <dimen name="index_btn_login">320dp</dimen>
+    <dimen name="index_btn_login_height">65dp</dimen>
+    <dimen name="index_btn_createaccount">320dp</dimen>
+    <dimen name="index_btn_create_height">65dp</dimen>
+    <dimen name="index_sentence">25sp</dimen>
+    <dimen name="rect1Width">350dp</dimen>
+    <dimen name="rect1Height">500dp</dimen>
+
+    <dimen name="btn_register">0dp</dimen>
+    <dimen name="btn_register_height">69dp</dimen>
+
+    <dimen name="payrectHeight">350dp</dimen>
+
+    <dimen name="login_logo">180dp</dimen>
+    <dimen name="login_logo_height">170dp</dimen>
+    <dimen name="createWidth">380dp</dimen>
+    <dimen name="createLength">33dp</dimen>
+</resources>

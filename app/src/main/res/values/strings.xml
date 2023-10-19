@@ -1,3 +1,59 @@
 <resources>
-    <string name="app_name">CleanCircleCompany</string>
+    <string name="app_name">CleanCircle</string>
+
+    <!--index page-->
+    <string name="login_index">SIGN UP</string>
+    <string name="create_btn_index">LOGIN</string>
+
+    <!--signup page-->
+    <string name="signup_id">Sign up</string>
+    <string name="userName">Full name</string>
+    <string name="userEmail">Email</string>
+    <string name="userNIC">NIC</string>
+    <string name="userADD">Address</string>
+    <string name="userTELE">Telephone Number</string>
+    <string name="userUSERNAME">Username</string>
+    <string name="userPASS">Password</string>
+    <string name="userRETYPASS">Re Enter Password</string>
+    <string name="check_box">I agree to terms and conditions</string>
+    <string name="btn_submit_C">SUBMIT</string>
+    <string name="login_C">LOGIN</string>
+
+    <string name="PaymentHeading">Payment Portal</string>
+    <string name="PayCCno">Credit Card No</string>
+    <string name="PayCCname">Card Holder Name</string>
+    <string name="PayExpDate">Exp.Date</string>
+    <string name="PayCvv">CVV</string>
+    <string name="PayBtn">PAY</string>
+
+    <string name="LoginType">User Type:</string>
+    <string-array name="user_type">
+        <item>Select User Type</item>
+        <item>Citizen</item>
+        <item>Wastage Worker</item>
+    </string-array>
+    <string name="LoginEmail">Email</string>
+    <string name="LoginBtn">LOGIN</string>
+    <string name="LoginWBtn">LOGIN AS WASTAGE WORKER</string>
+
+    <string name="CitizenHomeText">“For a better tomorrow with green”</string>
+    <string name="CitizenInfo">Info</string>
+    <string name="CitizenRecycle">Recycle</string>
+    <string name="CitizenReport">Report</string>
+    <string name="CitizenSchedule">Schedule Pickup</string>
+    <string name="CitizenBtnActive">Active Request</string>
+    <string name="CitizenBtnProfile">Profile</string>
+
+    <string name="WorkerSentence">You can select your garbage \ntype here.</string>
+    <string name="btnWorkerHome">Show Map</string>
+    <string-array name="waste_type">
+        <item>Select Waste Type</item>
+        <item>Polythene</item>
+        <item>Food Wastage</item>
+        <item>Plastic</item>
+        <item>E-Waste</item>
+    </string-array>
+
+
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
