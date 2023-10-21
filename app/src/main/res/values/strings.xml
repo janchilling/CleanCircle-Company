@@ -47,7 +47,6 @@
     <string name="WorkerSentence">You can select your garbage \ntype here.</string>
     <string name="btnWorkerHome">Show Map</string>
     <string-array name="waste_type">
-        <item>Select Waste Type</item>
         <item>Polythene</item>
         <item>Food Wastage</item>
         <item>Plastic</item>

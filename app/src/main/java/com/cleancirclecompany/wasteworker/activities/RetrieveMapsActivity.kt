@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.Date
 
 class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -43,12 +42,19 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        binding.btnShowMap.setOnClickListener {
+            // Get the current camera position
+            val cameraPosition = mMap.cameraPosition.target
+            // Save the latitude and longitude to Firebase
+            saveLocationToFirebase(cameraPosition.latitude, cameraPosition.longitude)
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        dfReference = FirebaseDatabase.getInstance().getReference("PickupDestinations")
+        dfReference = FirebaseDatabase.getInstance().getReference("CheckRequest")
 
         dfReference.addValueEventListener(object : ValueEventListener {
             @RequiresApi(Build.VERSION_CODES.O)
@@ -56,22 +62,27 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val selectedWastageType = intent.getStringExtra("wastageType")
                 val newStatus = "Open"
                 val current = LocalDateTime.now()
-                val formatter = DateTimeFormatter.ofPattern("dd-mm-yyyy")
+                val formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm:ss.SSS")
                 val formatted = current.format(formatter)
                 for (pickupSnapshot in dataSnapshot.children) {
 
-                    val locationWastageType = pickupSnapshot.child("wastageType").getValue(String::class.java)
+                    val locationWastageType =
+                        pickupSnapshot.child("wastageType").getValue(String::class.java)
                     val weight = pickupSnapshot.child("weight").getValue(Double::class.java)
                     val status = pickupSnapshot.child("status").getValue(String::class.java)
                     val date = pickupSnapshot.child("date").getValue(String::class.java)
 
                     if (locationWastageType == selectedWastageType && status == newStatus && formatted >= date.toString()) {
                         val latitude = pickupSnapshot.child("latitude").getValue(Double::class.java)
-                        val longitude = pickupSnapshot.child("longitude").getValue(Double::class.java)
+                        val longitude =
+                            pickupSnapshot.child("longitude").getValue(Double::class.java)
 
                         val location = LatLng(latitude ?: 6.861939, longitude ?: 79.971998)
 
-                        mMap.addMarker(MarkerOptions().position(location).title("$selectedWastageType").snippet("Weight: $weight kg"))
+                        mMap.addMarker(
+                            MarkerOptions().position(location).title("$selectedWastageType")
+                                .snippet("Weight: $weight kg")
+                        )
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 10F))
                     }
                 }
@@ -81,6 +92,21 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 // Handle onCancelled event here if needed
             }
         })
+
     }
 }
+    private fun saveLocationToFirebase(latitude: Double, longitude: Double) {
 
+        val locationReference = FirebaseDatabase.getInstance().getReference("PickupDestinations")
+
+        // Create a new child with a unique key to save the location
+        val locationKey = locationReference.push().key
+
+        // Create a map with latitude and longitude values
+        val locationData = HashMap<String, Any>()
+        locationData["latitude"] = latitude
+        locationData["longitude"] = longitude
+
+        // Save the location to Firebase
+        locationReference.child(locationKey!!).updateChildren(locationData)
+    }
