@@ -1,0 +1,55 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/startNavActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="368dp"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".activities.PinLocationActivity" />
+
+    <Button
+        android:id="@+id/navigate"
+        android:layout_width="372dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="460dp"
+        android:text="Navigate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/collectedButton"
+        android:layout_width="252dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:text="Collected"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigate" />
+
+    <Button
+        android:id="@+id/notCollectedButton"
+        android:layout_width="262dp"
+        android:layout_height="80dp"
+        android:text="Not Collected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collectedButton"
+        app:layout_constraintVertical_bias="0.226" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
