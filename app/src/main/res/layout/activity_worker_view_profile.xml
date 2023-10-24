@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.activities.WorkerViewProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btnBackHome"
+                android:layout_width="36dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_arrow_back_24"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="11dp" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="@dimen/view_logo"
+                android:layout_height="@dimen/view_logo_height"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintStart_toEndOf="@+id/signupheading"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_person_3_24" />
+
+            <TextView
+                android:id="@+id/signupheading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="120dp"
+                android:text="@string/user_Acc"
+                android:textAlignment="center"
+                android:textColor="#0B0B0B"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/usersCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="120dp"
+                android:textAlignment="center"
+                android:textColor="#0B0B0B"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/signupheading"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/signupheading"
+                app:layout_constraintTop_toTopOf="@+id/signupheading" />
+
+            <TextView
+                android:id="@+id/userNameprofile"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="Fullname"
+                android:background="@drawable/input_bg"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:textSize="20sp"
+                android:textStyle = "bold"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usersCount" />
+
+            <TextView
+                android:id="@+id/userEmailprofile"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/input_bg"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Email"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/userNameprofile"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/userNameprofile"
+                app:layout_constraintTop_toBottomOf="@+id/userNameprofile" />
+
+            <TextView
+                android:id="@+id/userNICprofile"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/input_bg"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="NIC"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/userEmailprofile"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/userEmailprofile"
+                app:layout_constraintTop_toBottomOf="@+id/userEmailprofile" />
+
+            <TextView
+                android:id="@+id/userADDprofile"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/input_bg"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Address"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/userNICprofile"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/userNICprofile"
+                app:layout_constraintTop_toBottomOf="@+id/userNICprofile" />
+
+            <TextView
+                android:id="@+id/userTELEprofile"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/input_bg"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:text="Telephone Number"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/userADDprofile"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/userADDprofile"
+                app:layout_constraintTop_toBottomOf="@+id/userADDprofile" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

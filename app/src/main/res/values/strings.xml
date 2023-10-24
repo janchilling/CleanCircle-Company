@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CleanCircle</string>
+    <string name="app_name">CleanCircle Company</string>
 
     <!--index page-->
     <string name="login_index">SIGN UP</string>
@@ -27,6 +27,7 @@
     <string name="PayBtn">PAY</string>
 
     <string name="LoginType">User Type:</string>
+    <string name="LoginTxt">Login</string>
     <string-array name="user_type">
         <item>Select User Type</item>
         <item>Citizen</item>
@@ -44,14 +45,24 @@
     <string name="CitizenBtnActive">Active Request</string>
     <string name="CitizenBtnProfile">Profile</string>
 
+<!--    Worker Home page-->
     <string name="WorkerSentence">You can select your garbage \ntype here.</string>
     <string name="btnWorkerHome">Show Map</string>
+    <string name="selectWastage">Select Wastage</string>
     <string-array name="waste_type">
+        <item>Select Wastage Type</item>
         <item>Polythene</item>
         <item>Food Wastage</item>
         <item>Plastic</item>
         <item>E-Waste</item>
     </string-array>
+
+<!--    Worker Retrieve map page-->
+    <string name="btnSelectWastage">Select Wastage</string>
+    <string name="btnDirection">Show Directions</string>
+
+<!--    user Account-->
+    <string name="user_Acc">Worker Account</string>
 
 
     <string name="title_activity_maps">MapsActivity</string>

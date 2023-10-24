@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="btnBlack">#2B2B2B</color>
     <color name="rectGreen">#4CAF50</color>
+
+<!--    Alert dialog box color-->
+    <color name="colorPrimaryDemo">#306B34</color>
+    <color name="colorSecondaryDemo">#FF6663</color>
 </resources>
