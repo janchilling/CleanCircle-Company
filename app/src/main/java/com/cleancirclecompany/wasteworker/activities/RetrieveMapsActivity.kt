@@ -1,4 +1,4 @@
-package com.cleancirclecompany.wasteworker.activities.activities
+package com.cleancirclecompany.wasteworker.activities
 
 import android.app.Dialog
 import android.content.Intent
@@ -47,7 +47,12 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         binding.btnBackHome.setOnClickListener {
-            val intent = Intent(this,WorkerHomeActivity::class.java)
+            val intent = Intent(this, WorkerHomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnShowDirection.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
         }
     }

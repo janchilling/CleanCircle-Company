@@ -1,4 +1,4 @@
-package com.cleancirclecompany.wasteworker.activities.models
+package com.cleancirclecompany.wasteworker.models
 
 data class WorkerModel(
     var fullName: String? = null,
