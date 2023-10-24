@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.location.Location
 import android.location.LocationManager
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 
 class LocationManager(private val activity: NavigationActivity) {
 
@@ -46,7 +48,6 @@ class LocationManager(private val activity: NavigationActivity) {
                         Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
                         latitude = location.latitude
                         longitude = location.longitude
-                         updateMapLocation()
                     }
                 }
             } else {
@@ -104,19 +105,38 @@ class LocationManager(private val activity: NavigationActivity) {
     fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mapReady = true
-        updateMapLocation()
+        getCurrentLocation()
     }
 
-    private fun updateMapLocation() {
+    fun updateMapLocation(dLatitude: Double, dLongitude: Double) {
+        getCurrentLocation()
         if (mapReady) {
-            val location = LatLng(latitude, longitude)
+            var location = LatLng(latitude, longitude)
+            var destination = LatLng(dLatitude, dLongitude)
             val zoomLevel = 16.0f // Adjust the zoom level as needed
             val cameraUpdate = CameraUpdateFactory.newLatLngZoom(location, zoomLevel)
+            // Remove the old marker and add the updated one
+            mMap.clear()
             mMap.addMarker(MarkerOptions().position(location).title("Your Location").icon(
                 BitmapDescriptorFactory.fromBitmap(getCustomMarkerIcon(activity))))
+            mMap.addMarker(MarkerOptions().position(destination).title("Your destination"))
             mMap.moveCamera(cameraUpdate)
         }
     }
+
+    fun drawPolyline(destination: LatLng) {
+        if (mapReady) {
+            val location = LatLng(latitude, longitude)
+
+            val polylineOptions = PolylineOptions()
+                .add(location, destination)
+                .width(5f) // Set the width of the polyline
+                .color(Color.BLUE) // Set the color of the polyline
+
+            mMap.addPolyline(polylineOptions)
+        }
+    }
+
 
     private fun getCustomMarkerIcon(context: Context): Bitmap {
         val drawable: Drawable? = ContextCompat.getDrawable(context, R.drawable.location_car)
