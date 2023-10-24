@@ -45,11 +45,13 @@ class NavigationActivity : AppCompatActivity(), NavigationManager.DataLoadedCall
         }
 
         binding.collectedButton.setOnClickListener {
-                showConfirmationDialog("Collected", "Have you collected the waste at this destination?", DialogInterface.BUTTON_POSITIVE)
+            showConfirmationDialog("Collected",
+                "Have you collected the waste at this destination?", DialogInterface.BUTTON_POSITIVE)
         }
 
         binding.notCollectedButton.setOnClickListener {
-//            navigationManager.showNextDestinationDetails()
+           showConfirmationDialogNotCollected("Not Collected",
+               "Have you collected the waste at this destination?", DialogInterface.BUTTON_POSITIVE)
         }
 
         // Initialize and set up map fragment
@@ -83,6 +85,28 @@ class NavigationActivity : AppCompatActivity(), NavigationManager.DataLoadedCall
                 updateMap()
             }
             .setNegativeButton("No") { _, _ ->
+                // User canceled
+                showToast("Action canceled")
+            }
+            .create()
+            .show()
+    }
+
+    private fun showConfirmationDialogNotCollected(title: String, message: String, result: Int) {
+        val builder = Builder(this)
+        builder.setTitle(title)
+            .setMessage(message)
+            .setPositiveButton("Confirm not collected") { _, _ ->
+                // User confirmed
+                if (result == DialogInterface.BUTTON_POSITIVE) {
+                    showToast("Waste collected")
+                } else {
+                    showToast("Waste not collected")
+                }
+                navigationManager.updateDestinationLocation()
+                updateMap()
+            }
+            .setNegativeButton("Back") { _, _ ->
                 // User canceled
                 showToast("Action canceled")
             }
