@@ -1,4 +1,4 @@
-package com.cleancirclecompany.wasteworker.activities.activities
+package com.cleancirclecompany.wasteworker.activities
 
 import android.app.Dialog
 import android.content.Intent
@@ -47,7 +47,7 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         binding.btnBackHome.setOnClickListener {
-            val intent = Intent(this,WorkerHomeActivity::class.java)
+            val intent = Intent(this, WorkerHomeActivity::class.java)
             startActivity(intent)
         }
     }
@@ -98,7 +98,7 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val newStatus = "Open"
                 for (pickupSnapshot in dataSnapshot.children) {
 
-                    val locationWastageType = pickupSnapshot.child("reportCategory").getValue(String::class.java)
+                    val locationWastageType = pickupSnapshot.child("wasteType").getValue(String::class.java)
                     val weight = pickupSnapshot.child("estimateWeight").getValue(String::class.java)
                     val status = pickupSnapshot.child("status").getValue(String::class.java)
 

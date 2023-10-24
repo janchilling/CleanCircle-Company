@@ -1,4 +1,4 @@
-package com.cleancirclecompany.wasteworker.activities.activities
+package com.cleancirclecompany.wasteworker.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +26,7 @@ class WorkerViewProfileActivity : AppCompatActivity() {
         val currentUser = firebaseAuth.currentUser
 
         binding.btnBackHome.setOnClickListener {
-            val intent = Intent(this,WorkerHomeActivity::class.java)
+            val intent = Intent(this, WorkerHomeActivity::class.java)
             startActivity(intent)
         }
 
