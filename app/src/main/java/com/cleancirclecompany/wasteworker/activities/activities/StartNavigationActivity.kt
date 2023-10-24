@@ -1,4 +1,4 @@
-package com.cleancirclecompany.wasteworker.activities
+package com.cleancirclecompany.wasteworker.activities.activities
 
 import android.content.Intent
 import android.net.Uri

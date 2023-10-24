@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.WorkerHomeActivity">
+    tools:context=".activities.activities.WorkerHomeActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -12,10 +12,23 @@
         android:layout_height="248dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/green_rectangle" />
+
+    <ImageButton
+        android:id="@+id/profileButtonWorkerHome"
+        android:layout_width="53dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="352dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:contentDescription="Profile icon"
+        android:padding="8dp"
+        android:src="@drawable/baseline_person_3_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -29,7 +42,7 @@
         app:srcCompat="@drawable/cleancircle_logo" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/logoutWorker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -63,12 +76,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="380dp"
         android:layout_height="51dp"
         android:layout_marginTop="16dp"
-
         android:entries="@array/waste_type"
         android:spinnerMode="dropdown"
         android:textColor="#2D2F5C"
@@ -81,12 +94,13 @@
         android:id="@+id/btn_showMap"
         android:layout_width="323dp"
         android:layout_height="68dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/btnBlack"
         android:text="@string/btnWorkerHome"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

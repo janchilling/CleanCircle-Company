@@ -20,4 +20,10 @@
     <dimen name="login_logo_height">170dp</dimen>
     <dimen name="createWidth">380dp</dimen>
     <dimen name="createLength">33dp</dimen>
+
+    <!--view account page-->
+    <dimen name="view_logo">84dp</dimen>
+    <dimen name="view_logo_height">79dp</dimen>
+    <dimen name="view_btn_update">155dp</dimen>
+    <dimen name="view_btn_update_height">0dp</dimen>
 </resources>
