@@ -50,11 +50,6 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val intent = Intent(this, WorkerHomeActivity::class.java)
             startActivity(intent)
         }
-
-        binding.btnShowDirection.setOnClickListener {
-            val intent = Intent(this, NavigationActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -103,7 +98,7 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val newStatus = "Open"
                 for (pickupSnapshot in dataSnapshot.children) {
 
-                    val locationWastageType = pickupSnapshot.child("reportCategory").getValue(String::class.java)
+                    val locationWastageType = pickupSnapshot.child("wasteType").getValue(String::class.java)
                     val weight = pickupSnapshot.child("estimateWeight").getValue(String::class.java)
                     val status = pickupSnapshot.child("status").getValue(String::class.java)
 
