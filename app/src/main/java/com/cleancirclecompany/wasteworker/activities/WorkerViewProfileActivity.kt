@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.cleancirclecompany.wasteworker.activities.models.WorkerModel
+import com.cleancirclecompany.wasteworker.models.WorkerModel
 import com.cleancirclecompany.wasteworker.databinding.ActivityWorkerViewProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
