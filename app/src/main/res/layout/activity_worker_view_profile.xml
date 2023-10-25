@@ -167,10 +167,27 @@
                 android:text="Telephone Number"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/userADDprofile"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/userADDprofile"
                 app:layout_constraintTop_toBottomOf="@+id/userADDprofile" />
+
+            <TextView
+                android:id="@+id/indexSentence"
+                android:layout_width="372dp"
+                android:layout_height="167dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/worker_profile_background"
+                android:text="@string/user_Acc_des"
+                android:textAlignment="center"
+                android:textColor="@color/rectGreen"
+                android:textSize="@dimen/index_sentence"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/userTELEprofile"
+                app:layout_constraintHorizontal_bias="0.478"
+                app:layout_constraintStart_toStartOf="@+id/userTELEprofile"
+                app:layout_constraintTop_toBottomOf="@+id/userTELEprofile"
+                tools:ignore="MissingConstraints" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
