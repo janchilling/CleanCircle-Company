@@ -60,9 +60,11 @@
 <!--    Worker Retrieve map page-->
     <string name="btnSelectWastage">Select Wastage</string>
     <string name="btnDirection">Show Directions</string>
+    <string name="DescriptionMap">Here you can click on these markers and save the places you want to pickup.</string>
 
 <!--    user Account-->
     <string name="user_Acc">Worker Account</string>
+    <string name="user_Acc_des">\nYour vital work ensures our community thrives. \n\n Thank you for your commitment.</string>
 
 
     <string name="title_activity_maps">MapsActivity</string>
