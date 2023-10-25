@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable
 import android.location.Location
 import android.location.LocationManager
 import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -24,6 +25,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
+import com.google.maps.DirectionsApi
+import com.google.maps.GeoApiContext
+import com.google.maps.model.DirectionsResult
+import com.google.maps.model.TravelMode
+import java.util.concurrent.TimeUnit
 
 class LocationManager(private val activity: NavigationActivity) {
 
@@ -124,18 +130,41 @@ class LocationManager(private val activity: NavigationActivity) {
         }
     }
 
-    fun drawPolyline(destination: LatLng) {
-        if (mapReady) {
-            val location = LatLng(latitude, longitude)
+    fun displayBestRoute(destination: LatLng) {
+        val origin = LatLng(latitude, longitude)
+        val dest = LatLng(destination.latitude, destination.longitude)
 
-            val polylineOptions = PolylineOptions()
-                .add(location, destination)
-                .width(5f) // Set the width of the polyline
-                .color(Color.BLUE) // Set the color of the polyline
+        val geoApiContext = GeoApiContext.Builder()
+            .apiKey("AIzaSyCFSIAyys5kLnSu9jO5soSBvRe_jGwtF3I")
+            .queryRateLimit(3)
+            .connectTimeout(1, TimeUnit.SECONDS)
+            .readTimeout(1, TimeUnit.SECONDS)
+            .writeTimeout(1, TimeUnit.SECONDS)
+            .build()
 
-            mMap.addPolyline(polylineOptions)
+        try {
+            val directionsResult: DirectionsResult = DirectionsApi.newRequest(geoApiContext)
+                .mode(TravelMode.DRIVING)
+                .origin(origin.toString())
+                .destination(dest.toString())
+                .await()
+
+            if (mapReady) {
+                val points = directionsResult.routes[0].overviewPolyline.decodePath()
+                val polylineOptions = PolylineOptions()
+                for (point in points) {
+                    polylineOptions.add(LatLng(point.lat, point.lng))
+                }
+                polylineOptions.width(5f)
+                polylineOptions.color(Color.BLUE)
+                mMap.addPolyline(polylineOptions)
+            }
+        } catch (e: Exception) {
+            Log.e("Directions API Error", e.message ?: "Unknown error")
+            Toast.makeText(activity, "Failed to get directions", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 
     private fun getCustomMarkerIcon(context: Context): Bitmap {

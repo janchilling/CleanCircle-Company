@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginPageActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="243dp"
@@ -98,6 +105,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/userPASS"
         app:layout_constraintTop_toBottomOf="@+id/userPASS" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
