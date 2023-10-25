@@ -41,15 +41,6 @@ class NavigationManager(private val context: Context, private val callback: Data
                         destinations.add(Pair(latitude, longitude))
                     }
                 }
-
-                if (destinations.isNotEmpty()) {
-                    // Start navigation and update location when data is available
-                    Log.i("Destinations", destinations[0].toString())
-                    updateDestinationLocation()
-                } else {
-                    showToast("No destinations found")
-                    Log.i("NO...................................", destinations.toString())
-                }
                 callback.onDataLoaded()
             }
 
@@ -81,7 +72,6 @@ class NavigationManager(private val context: Context, private val callback: Data
 
 // Sending the current destination details
     fun getDestinationDetails(): Pair<Double, Double>? {
-        Log.i("Current destination", destinations[currentDestinationIndex].toString())
         return if (destinations.isNotEmpty() && currentDestinationIndex < destinations.size) {
             destinations[currentDestinationIndex]
         } else {

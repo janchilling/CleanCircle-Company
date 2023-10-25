@@ -1,6 +1,7 @@
 package com.cleancirclecompany.wasteworker.activities
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -114,16 +115,22 @@ class NavigationActivity : AppCompatActivity(), NavigationManager.DataLoadedCall
             .show()
     }
 
-    private fun updateMap(){
+    private fun updateMap() {
         val destination = navigationManager.getDestinationDetails()
 
         if (destination != null) {
             locationManager.updateMapLocation(destination.first, destination.second)
-            locationManager.drawPolyline(LatLng(destination.first, destination.second))
+            locationManager.displayBestRoute(LatLng(destination.first, destination.second))
         } else {
-            Toast.makeText(this, "Unable to get Destination", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "All destinations have been reached", Toast.LENGTH_LONG).show()
+
+                // All destinations are reached, navigate to WorkerHomeActivity
+                val intent = Intent(this, WorkerHomeActivity::class.java)
+                startActivity(intent)
+
         }
     }
+
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
