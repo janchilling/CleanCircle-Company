@@ -76,10 +76,14 @@ class WorkerHomeActivity : AppCompatActivity() {
         }
 
         binding.btnShowMap.setOnClickListener {
-            val selectedWastageType = wastageTypeSpinner.selectedItem.toString()
-            val intent = Intent(this, RetrieveMapsActivity::class.java)
-            intent.putExtra("wasteType", selectedWastageType)
-            startActivity(intent)
+            if (wastageTypeSpinner.selectedItem != null) {
+                val selectedWastageType = wastageTypeSpinner.selectedItem.toString()
+                val intent = Intent(this, RetrieveMapsActivity::class.java)
+                intent.putExtra("wasteType", selectedWastageType)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this@WorkerHomeActivity, "Please select a waste type", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
