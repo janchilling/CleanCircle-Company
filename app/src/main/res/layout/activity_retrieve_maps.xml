@@ -18,7 +18,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/colorPrimaryDemo"
+        android:background="@color/white"
         tools:ignore="MissingConstraints">
 
         <ImageView
@@ -35,11 +35,12 @@
             android:id="@+id/mapText"
             android:layout_width="350dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="5dp"
             android:layout_toEndOf="@+id/btnBackHome"
             android:text="@string/DescriptionMap"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="19dp"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent" />

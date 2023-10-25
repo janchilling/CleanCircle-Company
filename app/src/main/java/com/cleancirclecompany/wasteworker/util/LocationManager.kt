@@ -119,7 +119,7 @@ class LocationManager(private val activity: NavigationActivity) {
         if (mapReady) {
             var location = LatLng(latitude, longitude)
             var destination = LatLng(dLatitude, dLongitude)
-            val zoomLevel = 16.0f // Adjust the zoom level as needed
+            val zoomLevel = 11.0f // Adjust the zoom level as needed
             val cameraUpdate = CameraUpdateFactory.newLatLngZoom(location, zoomLevel)
             // Remove the old marker and add the updated one
             mMap.clear()
@@ -129,43 +129,6 @@ class LocationManager(private val activity: NavigationActivity) {
             mMap.moveCamera(cameraUpdate)
         }
     }
-
-    fun displayBestRoute(destination: LatLng) {
-        val origin = LatLng(latitude, longitude)
-        val dest = LatLng(destination.latitude, destination.longitude)
-
-        val geoApiContext = GeoApiContext.Builder()
-            .apiKey("AIzaSyCFSIAyys5kLnSu9jO5soSBvRe_jGwtF3I")
-            .queryRateLimit(3)
-            .connectTimeout(1, TimeUnit.SECONDS)
-            .readTimeout(1, TimeUnit.SECONDS)
-            .writeTimeout(1, TimeUnit.SECONDS)
-            .build()
-
-        try {
-            val directionsResult: DirectionsResult = DirectionsApi.newRequest(geoApiContext)
-                .mode(TravelMode.DRIVING)
-                .origin(origin.toString())
-                .destination(dest.toString())
-                .await()
-
-            if (mapReady) {
-                val points = directionsResult.routes[0].overviewPolyline.decodePath()
-                val polylineOptions = PolylineOptions()
-                for (point in points) {
-                    polylineOptions.add(LatLng(point.lat, point.lng))
-                }
-                polylineOptions.width(5f)
-                polylineOptions.color(Color.BLUE)
-                mMap.addPolyline(polylineOptions)
-            }
-        } catch (e: Exception) {
-            Log.e("Directions API Error", e.message ?: "Unknown error")
-            Toast.makeText(activity, "Failed to get directions", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-
 
     private fun getCustomMarkerIcon(context: Context): Bitmap {
         val drawable: Drawable? = ContextCompat.getDrawable(context, R.drawable.location_car)

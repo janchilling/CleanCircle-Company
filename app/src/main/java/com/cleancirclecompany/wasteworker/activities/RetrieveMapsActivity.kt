@@ -50,6 +50,11 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val intent = Intent(this, WorkerHomeActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnShowDirection.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -80,7 +85,7 @@ class RetrieveMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                         // Add a click listener to the marker
                         marker?.tag = Pair(latitude, longitude)
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 10F))
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12F))
 
                     }
                 }

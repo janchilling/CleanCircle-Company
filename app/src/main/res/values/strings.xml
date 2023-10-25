@@ -50,7 +50,7 @@
     <string name="btnWorkerHome">Show Map</string>
     <string name="selectWastage">Select Wastage</string>
     <string-array name="waste_type">
-        <item>Select Wastage Type</item>
+<!--        <item></item>-->
         <item>Polythene</item>
         <item>Food Wastage</item>
         <item>Plastic</item>

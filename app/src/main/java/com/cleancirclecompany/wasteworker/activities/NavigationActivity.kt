@@ -55,6 +55,11 @@ class NavigationActivity : AppCompatActivity(), NavigationManager.DataLoadedCall
                "Have you collected the waste at this destination?", DialogInterface.BUTTON_POSITIVE)
         }
 
+        binding.btnBackHome.setOnClickListener {
+            val intent = Intent(this, RetrieveMapsActivity::class.java)
+            startActivity(intent)
+        }
+
         // Initialize and set up map fragment
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync { googleMap ->
@@ -120,7 +125,6 @@ class NavigationActivity : AppCompatActivity(), NavigationManager.DataLoadedCall
 
         if (destination != null) {
             locationManager.updateMapLocation(destination.first, destination.second)
-            locationManager.displayBestRoute(LatLng(destination.first, destination.second))
         } else {
             Toast.makeText(this, "All destinations have been reached", Toast.LENGTH_LONG).show()
 
