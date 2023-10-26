@@ -29,7 +29,7 @@ class NavigationManager(private val context: Context, private val callback: Data
 
 // Get all destinations function
     private fun getAllDestinations(callback: DataLoadedCallback) {
-        val database = FirebaseDatabase.getInstance().getReference("CheckRequest")
+        val database = FirebaseDatabase.getInstance().getReference("TestAddDestinations")
         database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.i("Snap...........???????", snapshot.toString())

@@ -56,7 +56,7 @@ class NavigationActivity : AppCompatActivity(), NavigationManager.DataLoadedCall
         }
 
         binding.btnBackHome.setOnClickListener {
-            val intent = Intent(this, RetrieveMapsActivity::class.java)
+            val intent = Intent(this, WorkerHomeActivity::class.java)
             startActivity(intent)
         }
 
